@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcServer";
+
+package students;// name of our name
+
+service Students {
+  rpc GetStudent (StudentRequest) returns (StudentResponse);
+  rpc CreateStudent (CreateStudentRequest) returns (CreateStudentResponse);
+}
+
+message StudentRequest {
+  int32 id = 1;
+}
+
+message StudentResponse {
+  int32 id = 1;
+  string name = 2;
+  string address = 3;
+}
+
+message CreateStudentRequest {
+  string name = 1;
+  string address = 2;
+}
+
+message CreateStudentResponse {
+  int32 id = 1;
+}
